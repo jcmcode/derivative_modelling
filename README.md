@@ -1,23 +1,24 @@
-# Derivative Modelling: Reconstructing Market Probabilities
+# Derivative Modelling: Inferring Market-Implied Probabilities
 
-Standard option models assume stock returns follow a normal distribution. They don't. This project is a technical deep-dive into how the market actually prices "tail risk" and directional bias.
+Goal: reconstruct the probability distribution the market is implying from option prices, then compare it to textbook assumptions (normal returns, Black-Scholes) to see where tail risk and directional bias actually sit.
 
-I am building this to understand the mechanics of the **Volatility Smile** and how to extract a **Probability Density Function (PDF)** directly from market prices.
+## What this builds
+- Implied volatility surface from listed calls and puts across strikes/expiries.
+- Smooth price curves (cubic splines) so second derivatives are stable.
+- Breeden-Litzenberger extraction of the risk-neutral density: $$P(S_T = K) \propto \frac{\partial^2 C}{\partial K^2}$$
+- Visuals of the market-implied PDF vs. a lognormal/normal benchmark.
 
-## The Core Logic
-1. **The IV Surface:** Collect market prices for Calls/Puts across all strikes and expiries.
-2. **The "Smile":** Calculate Implied Volatility for each. If the market followed Black-Scholes, this would be a flat line. It’s actually a curve, showing the market overprices "crashes" (Downside Skew).
-3. **Breeden-Litzenberger Identity:** This is the "Magic" step. It proves that the probability of a stock landing at a certain price is hidden in the curvature of the option's price graph:
-   $$P(S_T = K) \propto \frac{\partial^2 C}{\partial K^2}$$
-   By taking the second derivative of the Call price relative to the Strike ($K$), we get the **Market-Implied Probability.**
+## Workflow
+1) Ingest option chains (strike, bid, ask, expiry, underlying spot/rates/dividends).
+2) Compute IVs and build the smile/surface; flag obvious bad quotes.
+3) Interpolate/extrapolate to a smooth call price function in strike space.
+4) Take second derivatives to back out the risk-neutral density; normalize to a PDF.
+5) Plot and compare the implied distribution to the standard model, focusing on skew and tail fatness.
 
-## Project Workflow
-- **Data:** Scraping live Option Chains (Strike, Bid, Ask, Expiry).
-- **Interpolation:** Market data is "gappy." I'm using **Cubic Splines** to create a smooth price curve so I can actually calculate derivatives.
-- **PDF Extraction:** Converting that smooth curve into a probability distribution.
-- **Visualization:** Plotting the "Bell Curve" the market is *actually* betting on vs. what a standard model predicts.
+## Questions this answers
+- How steep is downside skew vs. upside? Are puts structurally richer?
+- How much extra probability mass is priced into 2-3 sigma moves relative to a normal curve?
+- How does the implied distribution shift across maturities (1w vs. 6m)?
 
-## Key Questions This Project Answers
-* **Skewness:** Why is a $90 Put more expensive than a $110 Call when the stock is at $100? (Answer: The market fears the downside more).
-* **Fat Tails:** How much "extra" probability is the market pricing into a 20% crash compared to a normal distribution?
-* **Term Structure:** How does the market's expectation of risk change between 1 week from now and 6 months from now?
+## Why it matters
+Market prices embed the consensus forward view (under risk-neutral measure). Recovering that distribution shows where traders think the asset can go and how much they charge for tails, instead of relying on an assumed normal world.
