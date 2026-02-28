@@ -172,32 +172,3 @@ The pricing kernel is generally decreasing (consistent with risk aversion) but m
 
 The ATM straddle P&L surface shows how profit depends on both the underlying price movement and time remaining. The V-shaped payoff at expiry transitions to a smooth surface with positive time value.
 
----
-
-## Visualization Gallery
-
-| # | Figure | Description |
-|---|--------|-------------|
-| 1 | [Volatility Smile (Raw)](figures/01_volatility_smile_raw.png) | OTM put/call implied volatilities vs moneyness |
-| 2 | [Volatility Smile (Spline)](figures/02_volatility_smile_spline_fit.png) | Clamped cubic spline fit with flat extrapolation |
-| 3 | [Call Valuation Function](figures/03_call_valuation_function.png) | BS call prices reconstructed from interpolated smile |
-| 4 | [Risk-Neutral Distribution](figures/04_risk_neutral_distribution.png) | Market-implied RND vs lognormal benchmark (4-panel) |
-| 5 | [Sensitivity Analysis](figures/05_sensitivity_delta.png) | RND sensitivity to finite difference step size |
-| 6 | [Tail Risk](figures/06_tail_risk.png) | Shaded tail comparison: market vs lognormal |
-| 7 | [IV Surface 3D](figures/07_iv_surface_3d.png) | Implied volatility surface across moneyness and maturity |
-| 8a | [Delta Surface](figures/08a_greeks_delta.png) | Call delta across moneyness and maturity |
-| 8b | [Gamma Surface](figures/08b_greeks_gamma.png) | Gamma across moneyness and maturity |
-| 8c | [Vega Surface](figures/08c_greeks_vega.png) | Vega across moneyness and maturity |
-| 8d | [Theta Surface](figures/08d_greeks_theta.png) | Theta across moneyness and maturity |
-| 9a | [Skew Evolution](figures/09a_skew_evolution.png) | Volatility skew surface |
-| 9b | [Curvature Evolution](figures/09b_curvature_evolution.png) | Volatility curvature surface |
-| 10 | [RND Surface 3D](figures/10_rnd_surface_3d.png) | Risk-neutral density surface across maturity |
-| 11 | [CDF Surface 3D](figures/11_cdf_surface_3d.png) | Risk-neutral CDF surface across maturity |
-| 12 | [Term Structure of Moments](figures/12_term_structure_moments.png) | Skewness, kurtosis, std dev, tail prob vs maturity |
-| 13 | [Mixture of Lognormals](figures/13_mixture_lognormals.png) | Two-component lognormal mixture fit |
-| 14 | [State Prices](figures/14_state_prices.png) | Arrow-Debreu state price density |
-| 15 | [No-Arbitrage Bounds](figures/15_no_arbitrage_bounds.png) | Smile slope vs arbitrage constraints |
-| 16 | [Pricing Kernel](figures/16_pricing_kernel.png) | Single-expiry pricing kernel extraction |
-| 17 | [Pricing Kernel Surface](figures/17_pricing_kernel_surface_3d.png) | 3D pricing kernel across maturity |
-| 18 | [Straddle P&L](figures/18_straddle_pnl_landscape.png) | ATM straddle P&L landscape |
-| 19 | [Summary (Publication)](figures/summary_publication.png) | 6-panel matplotlib summary figure |

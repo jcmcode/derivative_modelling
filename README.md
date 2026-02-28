@@ -10,7 +10,9 @@ Option prices encode the market's collective forward-looking view of where an as
 
 $$\tilde{\pi}(X) = e^{rT} \frac{\partial^2 c}{\partial X^2}$$
 
-This project implements the full extraction pipeline on live SPY options data, producing 19 publication-quality visualizations covering the volatility surface, risk-neutral densities, Greeks, tail risk analysis, pricing kernels, and arbitrage diagnostics.
+This project implements the full extraction pipeline on live SPY options data.
+
+> **19 publication-quality visualizations** covering the volatility surface, risk-neutral densities, Greeks surfaces, tail risk analysis, pricing kernels, mixture-of-lognormals fitting, and no-arbitrage diagnostics.
 
 ## Key Results
 
@@ -46,7 +48,7 @@ Following **Malz (2014)** and **Jackwerth (2004)**, the pipeline implements:
 ## Setup
 
 ```bash
-git clone https://github.com/your-username/derivative_modelling.git
+git clone https://github.com/jcmcode/derivative_modelling.git
 cd derivative_modelling
 python3 -m venv .venv
 source .venv/bin/activate
