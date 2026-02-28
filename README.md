@@ -48,8 +48,8 @@ Following **Malz (2014)** and **Jackwerth (2004)**, the pipeline implements:
 ## Setup
 
 ```bash
-git clone https://github.com/jcmcode/derivative_modelling.git
-cd derivative_modelling
+git clone https://github.com/jcmcode/risk-neutral-density.git
+cd risk-neutral-density
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -75,7 +75,7 @@ This fetches live market data, runs all analyses, exports figures to `figures/`,
 ## Project Structure
 
 ```
-derivative_modelling/
+risk-neutral-density/
 ├── notebooks/
 │   ├── model.ipynb              # Main notebook (source)
 │   └── model_executed.ipynb     # Executed notebook with outputs
