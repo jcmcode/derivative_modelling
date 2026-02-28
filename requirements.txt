@@ -6,3 +6,6 @@ yfinance
 matplotlib
 QuantLib
 statsmodels
+kaleido
+nbconvert
+ipykernel

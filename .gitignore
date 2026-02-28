@@ -1,5 +1,12 @@
 /.venv
-
 /.DS_Store
 
+# Claude Code
 CLAUDE.md
+.claude/
+
+# Large interactive HTML figures
+figures/html/
+
+# Notebook modification script
+modify_notebook.py
